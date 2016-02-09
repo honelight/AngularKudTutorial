@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html ng-app="ngSrcDirectiveModule">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/ngSrcDirective.js"></script>
+</head>
+<body>
+    <div ng-controller="ngSrcDirectiveController">
+        <div>Name: {{country.name}}</div>
+        <div>capital: {{country.capital}}</div>
+        <div><img ng-src="{{country.flag}}"
+                  alt="{{country.name + ' Flag'}}"
+                  style="height:100px; width:200px"/></div>
+    </div>
+</body>
+</html>
