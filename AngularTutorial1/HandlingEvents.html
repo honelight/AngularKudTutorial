@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/HandlingEvents.js"></script>
+</head>
+<body ng-app="handlingEventsModule">
+    <div ng-controller="handlingEventsController">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
+                    <th>Like/Dislike</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="lang in techonolgies">
+                    <td>{{lang.name}}</td>
+                    <td>{{lang.likes}}</td>
+                    <td>{{lang.dislikes}}</td>
+                    <td>
+                        <input type="button" value="Like" ng-click="incrementLikes(lang)"/>
+                        <input type="button" value="Dislike" ng-click="incrementDislikes(lang)"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
