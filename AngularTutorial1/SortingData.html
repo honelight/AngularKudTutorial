@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/SortingData.js"></script>
+</head>
+<body ng-app="sortingDataModule">
+    <div ng-controller="sortingDataController">
+        Order by: <select ng-model="parts">
+                        <option value="firstName">Name ASC</option>
+                        <option value="gender">Gender ASC</option>
+                        <option value="dateOfBirth">DateOfBirth ASC</option>
+                        <option value="salary">Salary ASC</option>
+                  </select>
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | orderBy:parts">
+                    <td>{{ employee.firstName }}</td>
+                    <td>{{ employee.dateOfBirth | date:"dd/MM/yyyy" }}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.salary }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
