@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/SortByTableHeader.js"></script>
+</head>
+<body ng-app="sortingDataModule">
+    <div ng-controller="sortingDataController">
+        <table>
+            <thead>
+                <tr>
+                    <th ng-click="sortData('firstName')">Name</th>
+                    <th ng-click="sortData('dateOfBirth')">Date of Birth</th>
+                    <th ng-click="sortData('gender')">Gender</th>
+                    <th ng-click="sortData('salary')">Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | orderBy:parts:reverseSort">
+                    <td>{{ employee.firstName }}</td>
+                    <td>{{ employee.dateOfBirth | date:"dd/MM/yyyy" }}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.salary }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
