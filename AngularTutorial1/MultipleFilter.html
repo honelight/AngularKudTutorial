@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/MultipleFilter.js"></script>
+</head>
+<body ng-app="multipleFilterModule">
+    <div ng-controller="multipleFilterController">
+        <input type="text" placeholder="Search name" ng-model="nameSearch.firstName"/>
+        <input type="text" placeholder="Search city" ng-model="citySearch.city"/>
+        <input type="text" placeholder="Search city and name" ng-model="searchCityAndname" />
+        <input type="checkbox" ng-model="exactMatch"/>
+        Exact Match
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of birth</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <!--<tbody ng-repeat="employee in employees | filter:nameSearch:exactMatch | filter:citySearch:exactMatch">-->
+            <tbody ng-repeat="employee in employees | filter:search">
+                <tr>
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.dateOfBirth}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.city}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
