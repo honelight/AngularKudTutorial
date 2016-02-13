@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/SerachFilter.js"></script>
+</head>
+<body ng-app="searchFilterModule">
+    <div ng-controller="searchFilterController">
+
+        Serach: <input type="text" placeholder="Search employees" ng-model="searchText.firstName" />
+        <br />
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | filter: searchText">
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.dateOfBirth}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.salary|currency:'$':2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
