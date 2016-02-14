@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/NgHideAndShow.js"></script>
+</head>
+<body ng-app="NgHideAndShowModule" ng-controller="NgHideAndShowController">
+    <input type="checkbox" ng-model="Hide"/>Hide Salary
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>dateOfBirth</th>
+                <th>gender</th>
+                <th ng-hide="Hide">city</th>
+                <th ng-show="Hide">city</th>
+</tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="employee in employees">
+                <td>{{employee.name}}</td>
+                <td>{{employee.dateOfBirth}}</td>
+                <td>{{employee.gender}}</td>
+                <td ng-hide="Hide">{{employee.city}}</td>
+                <td ng-show="Hide">####</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
